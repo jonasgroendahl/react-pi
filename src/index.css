@@ -1,14 +1,108 @@
+
+:root {
+  --wteal: #36dcb6;
+  --black: #3c3c3b;
+  --gray: #9b9b9b;
+  --fontSizeBig: 62px;
+  --fontSizeMed: 36px; 
+  --fontSizeSmall: 24px;
+  --fontSizeGiant: 150px;
+}
+
+h1 {
+  font-size: var(--fontSizeBig);
+  margin: 1rem;
+  text-transform: uppercase;
+  font-style:italic;
+  color:white;
+}
+
+h2 {
+  font-size: var(--fontSizeMed);
+  color: var(--black);
+  color:white;
+}
+
+p {
+  font-size: var(--fontSizeSmall);
+  color:white;
+}
+
+.headline {
+  color: var(--gray);
+}
+
+.countdown {
+  font-size: var(--fontSizeGiant);
+  color: var(--wteal);
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.wrapper {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease-in;
+  background-repeat: no-repeat;
+}
+
+.wrapper > div {
+  width: 80%;
+}
+
+.flex {
+  display:flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.clock {
+  position: fixed;
+  bottom: 2%;
+}
+
+.video-wrapper{
+  position:relative;
+}
+
+.video-wrapper video {
+  height: 40vh;
+  width: 100%;
+}
+
+.video-wrapper h1 {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 64px);
+}
+
+.move-bg {
+  background-image: url('https://res.cloudinary.com/dcbbunxhy/image/upload/q_auto/v1541593965/group_2x.jpg');
+}
+
+.pause-bg {
+  background-image: url('https://res.cloudinary.com/dcbbunxhy/image/upload/q_auto/v1541594014/group_2xb.jpg');
+}
+
+.complete-bg {
+  background-image: url('https://res.cloudinary.com/dcbbunxhy/image/upload/q_auto/v1541593961/group-2_2x.jpg');
 }
