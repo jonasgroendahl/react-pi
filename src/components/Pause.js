@@ -10,7 +10,7 @@ export default class Pause extends PureComponent {
 
         return (
             <div className="flex column">
-                {JSON.stringify(item) !== '{}' ?
+                {item.id ?
                     <>
                         <p className="headline">Starting at</p>
                         <h2>{item.start}</h2>
