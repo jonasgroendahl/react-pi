@@ -13,7 +13,8 @@ class App extends Component {
     time: '15:57',
     view: 'PAUSE',
     item: {},
-    countdown: 10
+    countdown: 10,
+    rest: false
   }
 
   componentDidMount = () => {
@@ -42,6 +43,12 @@ class App extends Component {
 
       if (data.move) {
         this.setState({ view: 'MOVE' });
+
+        // IF ALSO a rest block
+        if (data.rest) {
+          this.setState({ rest: 1 });
+        }
+
         let timer = 10;
         const moveTimer = setInterval(() => {
           timer--;
@@ -49,7 +56,7 @@ class App extends Component {
           if (timer === 4) {
             clearInterval(moveTimer);
             this.startPlayInterval();
-            this.setState({ view: 'PLAY' });
+            this.setState({ view: 'PLAY', rest: 0 });
           }
         }, 1000)
       }
@@ -80,7 +87,7 @@ class App extends Component {
   }
 
   render() {
-    const { time, view, item, countdown } = this.state;
+    const { time, view, item, countdown, rest } = this.state;
 
     const classes = ['wrapper'];
 
@@ -91,7 +98,7 @@ class App extends Component {
         classes.push('pause-bg');
         break;
       case 'MOVE':
-        viewContent = <Move countdown={countdown} />
+        viewContent = <Move countdown={countdown} rest={rest} />
         classes.push('move-bg');
         break;
       case 'COMPLETE':
