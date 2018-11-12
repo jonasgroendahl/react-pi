@@ -64,6 +64,7 @@ class App extends Component {
             this.setState({ view: 'PLAY', rest: 0 });
           }
           if (timer === 0 && data.rest) {
+            clearInterval(moveTimer);
             this.setState({ view: 'PAUSE' });
           }
         }, 1000)
