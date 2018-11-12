@@ -7,7 +7,7 @@ export default function Move(props) {
             <h1 className="countdown">
                 {props.countdown}
             </h1>
-            {props.rest && <h2>Rest </h2>}
+            <h2>{props.rest ? 'Rest' : ''}</h2>}
         </div>
     )
 }

@@ -44,19 +44,27 @@ class App extends Component {
       if (data.move) {
         this.setState({ view: 'MOVE' });
 
+        let timer;
+
         // IF ALSO a rest block
         if (data.rest) {
           this.setState({ rest: 1 });
+          timer = data.duration * data.amount;
+        }
+        else {
+          timer = 10;
         }
 
-        let timer = 10;
         const moveTimer = setInterval(() => {
           timer--;
           this.setState({ countdown: timer });
-          if (timer === 4) {
+          if (timer === 4 && !data.rest) {
             clearInterval(moveTimer);
             this.startPlayInterval();
             this.setState({ view: 'PLAY', rest: 0 });
+          }
+          if (timer === 0 && data.rest) {
+            this.setState({ view: 'PAUSE' });
           }
         }, 1000)
       }
