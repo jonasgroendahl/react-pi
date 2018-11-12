@@ -62,12 +62,13 @@ class App extends Component {
       }
       else {
         this.startPlayInterval();
-        this.setState({ view: 'PLAY', item: { name: data.navn, duration: data.duration * 4 } });
+        this.setState({ view: 'PLAY', item: { ...data } });
       }
     });
   }
 
   startPlayInterval = () => {
+    this.setState({ countdown: 4 });
     let playTimer = 4;
     const playInterval = setInterval(() => {
       playTimer--;
