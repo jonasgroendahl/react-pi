@@ -55,19 +55,17 @@ class App extends Component {
           timer = 10;
         }
 
-        const moveTimer = setInterval(() => {
-          timer--;
-          this.setState({ countdown: timer });
-          if (timer === 4 && !data.rest) {
-            clearInterval(moveTimer);
-            this.startPlayInterval();
-            this.setState({ view: 'PLAY', rest: 0 });
-          }
-          if (timer === 0 && data.rest) {
-            clearInterval(moveTimer);
-            this.setState({ view: 'PAUSE' });
-          }
-        }, 1000)
+        this.setState({ countdown: timer }, () => {
+          const moveTimer = setInterval(() => {
+            timer--;
+            this.setState({ countdown: timer });
+            if (timer === 4) {
+              clearInterval(moveTimer);
+              this.startPlayInterval();
+              this.setState({ view: 'PLAY', rest: 0, item: { ...data } });
+            }
+          }, 1000)
+        })
       }
       else {
         this.startPlayInterval();

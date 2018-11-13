@@ -9,10 +9,9 @@ export default function Play(props) {
             <h2>Get ready</h2>
             <h1>{item.title}</h1>
             <h2>{secondsToString(item.duration * item.amount)}</h2> {/* TIMES THE AMOUNT */}
-            <div className="video-wrapper">
-                <video src={`https://media.w3.org/2010/05/sintel/trailer.mp4`} autoPlay muted />
-                <h1 className="countdown">{countdown}</h1>
-            </div>
+            {/*<video src={`https://media.w3.org/2010/05/sintel/trailer.mp4`} autoPlay muted /> */}
+            <h1 className="countdown">{countdown}</h1>
+
         </div>
 
     )
