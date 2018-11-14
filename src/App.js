@@ -15,7 +15,7 @@ class App extends Component {
     item: {},
     countdown: 10,
     rest: false,
-    prevView: ''
+    prevView: 'PAUSE'
   }
 
   componentDidMount = () => {
