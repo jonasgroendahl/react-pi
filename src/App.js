@@ -14,13 +14,20 @@ class App extends Component {
     view: 'PAUSE',
     item: {},
     countdown: 10,
-    rest: false
+    rest: false,
+    prevView: ''
   }
 
   componentDidMount = () => {
     this.startClock();
     this.socket = io('http://localhost:3001');
     this.handleIncomingSocketRequests();
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.view !== prevState.view) {
+      this.setState({ prevView: prevState.view });
+    }
   }
 
   handleIncomingSocketRequests = () => {
@@ -118,7 +125,12 @@ class App extends Component {
         break;
       case 'PLAY':
         viewContent = <Play item={item} countdown={countdown} />
-        classes.push('pause-bg');
+        if (this.state.prevView === 'PAUSE') {
+          classes.push('pause-bg');
+        }
+        else {
+          classes.push('move-bg');
+        }
         break;
       default:
         break;
