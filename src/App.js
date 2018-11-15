@@ -124,7 +124,6 @@ class App extends Component {
         classes.push('complete-bg');
         break;
       case 'PLAY':
-        console.log("PLAY screen", this.state);
         viewContent = <Play item={item} countdown={countdown} />
         if (this.state.prevView === 'PAUSE') {
           classes.push('pause-bg');

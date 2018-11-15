@@ -21,6 +21,9 @@ export default class Pause extends PureComponent {
 
                         }
                         {
+                            item.description && <p>{item.description}</p>
+                        }
+                        {
                             item.equipment &&
                             <>
                                 <p className="headline">For this station you will need:</p>
